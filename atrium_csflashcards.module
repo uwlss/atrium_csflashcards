@@ -1,0 +1,39 @@
+<?php
+
+include_once('atrium_csflashcards.features.inc');
+
+/**
+ * Implementation of hook_help().
+ */
+function atrium_csflashcards_help($path) {
+  // Central help page content.
+  if ($path == 'help#atrium_csflashcards') {
+    $help = '<h3>'. t('Flashcards') .'</h3>';
+    $help .= '<p>'. t("The csflashcards lets your team communicate by posting updates and discussing issues. It is a great place for sharing progress, discussing challenges, and exploring ideas.") .'</p>';
+    $help .= '<p>'. t("To start a conversation navigate to the csflashcards and click the \"Add csflashcards post\" button. You will need to enter a title and some body content to your post. Then click \"Save\".") .'</p>';
+    return $help;
+  }
+
+  // Contextual help content.
+  if (context_isset('context', 'csflashcards_listing')) {
+    if ($path == 'node/add/csflashcards') {
+      $help = '';
+      $help .= '<h3>'. t('Flashcards') .'</h3>';
+      $help .= '<p>'. t("Post an entry to the csflashcards of this group. The post will be shared will all team members on the csflashcards, and they will be able to reply to it. You can optionally notify other group members by checking their name in the notifications field.") .'</p>';
+      return $help;
+    }
+    else {
+      $help = '<h3>'. t('Flashcards') .'</h3>';
+      $help .= '<p>'. t("The csflashcards lets your team communicate by posting updates and discussing issues. It is a great place for sharing progress, discussing challenges, and exploring ideas.") .'</p>';
+      return $help;
+    }
+  }
+}
+
+
+/**
+* Implementation of hook_init().
+*/
+function atrium_csflashcards_init() {
+  drupal_add_css(drupal_get_path('module', 'atrium_csflashcards') .'/atrium_csflashcards.css');
+}
