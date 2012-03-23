@@ -9,6 +9,13 @@ function atrium_csflashcards_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_csflashcards';
+  $strongarm->value = '1';
+  $export['ant_csflashcards'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'atrium_activity_update_type_csflashcards';
   $strongarm->value = 1;
   $export['atrium_activity_update_type_csflashcards'] = $strongarm;
@@ -89,26 +96,43 @@ function atrium_csflashcards_strongarm() {
   $strongarm->name = 'content_extra_weights_csflashcards';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '7',
-    'author' => '6',
-    'options' => '8',
-    'comment_settings' => '9',
-    'menu' => '2',
-    'book' => '5',
-    'attachments' => '1',
-    'og_nodeapi' => '3',
+    'revision_information' => '6',
+    'author' => '5',
+    'options' => '7',
+    'comment_settings' => '8',
+    'menu' => '1',
+    'taxonomy' => '-1',
+    'book' => '4',
+    'attachments' => '0',
+    'og_nodeapi' => '2',
   );
   $export['content_extra_weights_csflashcards'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_csflashcards';
+  $strongarm->name = 'exclude_node_title_content_type_values';
   $strongarm->value = array(
-    0 => 'status',
-    1 => 'revision',
+    'csflashcards' => 'csflashcards',
+    'status' => 'status',
+    'blog' => 0,
+    'book' => 0,
+    'casetracker_basic_case' => 0,
+    'courseinfo' => 0,
+    'event' => 0,
+    'csglossary' => 0,
+    'group' => 0,
+    'cslibrary' => 0,
+    'profile' => 0,
+    'casetracker_basic_project' => 0,
+    'readingresponse' => 0,
+    'shoutbox' => 0,
+    'topictheme' => 0,
+    'webform' => 0,
+    'feed_ical_item' => 0,
+    'feed_ical' => 0,
   );
-  $export['node_options_csflashcards'] = $strongarm;
+  $export['exclude_node_title_content_type_values'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -207,29 +231,6 @@ function atrium_csflashcards_strongarm() {
       'collapsed' => 1,
       'hidden' => 1,
     ),
-    'group_images' => array(
-      'region' => 'main',
-      'weight' => '3',
-      'has_required' => FALSE,
-      'title' => 'Add Images',
-      'hidden' => 0,
-      'collapsed' => 1,
-    ),
-    'group_video' => array(
-      'region' => 'main',
-      'weight' => '4',
-      'has_required' => FALSE,
-      'title' => 'Add Video',
-      'hidden' => 0,
-      'collapsed' => 1,
-    ),
-    'body_field' => array(
-      'region' => 'main',
-      'weight' => '2',
-      'has_required' => FALSE,
-      'title' => NULL,
-      'hidden' => 0,
-    ),
     'exclude_node_title' => array(
       'region' => 'main',
       'weight' => '0',
@@ -237,15 +238,40 @@ function atrium_csflashcards_strongarm() {
       'title' => 'Exclude title from display',
       'hidden' => 0,
     ),
-    'taxonomy' => array(
-      'region' => 'right',
-      'weight' => '0',
+    'group_side1' => array(
+      'region' => 'main',
+      'weight' => '-4',
+      'has_required' => TRUE,
+      'title' => 'Side 1',
+      'collapsed' => 0,
+    ),
+    'group_side2' => array(
+      'region' => 'main',
+      'weight' => '-3',
+      'has_required' => TRUE,
+      'title' => 'Side 2',
+      'collapsed' => 0,
+    ),
+    'group_csflashcards_images' => array(
+      'region' => 'main',
+      'weight' => '-2',
       'has_required' => FALSE,
-      'title' => NULL,
+      'title' => 'Images',
+      'collapsed' => 0,
       'hidden' => 0,
     ),
   );
   $export['nodeformscols_field_placements_csflashcards_default'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_csflashcards';
+  $strongarm->value = array(
+    0 => 'status',
+    1 => 'revision',
+  );
+  $export['node_options_csflashcards'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

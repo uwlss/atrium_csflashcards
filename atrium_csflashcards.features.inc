@@ -14,6 +14,30 @@ function atrium_csflashcards_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_imagecache_default_presets().
+ */
+function atrium_csflashcards_imagecache_default_presets() {
+  $items = array(
+    'csflashcards_medium' => array(
+      'presetname' => 'csflashcards_medium',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale',
+          'data' => array(
+            'width' => '300',
+            'height' => '300',
+            'upscale' => 0,
+          ),
+        ),
+      ),
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implementation of hook_node_info().
  */
 function atrium_csflashcards_node_info() {

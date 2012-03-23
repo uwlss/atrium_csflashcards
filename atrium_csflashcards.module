@@ -9,8 +9,8 @@ function atrium_csflashcards_help($path) {
   // Central help page content.
   if ($path == 'help#atrium_csflashcards') {
     $help = '<h3>'. t('Flashcards') .'</h3>';
-    $help .= '<p>'. t("The csflashcards lets your team communicate by posting updates and discussing issues. It is a great place for sharing progress, discussing challenges, and exploring ideas.") .'</p>';
-    $help .= '<p>'. t("To start a conversation navigate to the csflashcards and click the \"Add csflashcards post\" button. You will need to enter a title and some body content to your post. Then click \"Save\".") .'</p>';
+    $help .= '<p>'. t("Flashcards help your group share and study key concepts and terminology.") .'</p>';
+    $help .= '<p>'. t("To create a new flashcard navigate Flashcards page for your group and click the \"Add Flashcards entry\" button. Enter titles for side 1 and side 2 of your card. Optionally add descriptions for each side and image to illustrate your concept. Then click \"Save\".") .'</p>';
     return $help;
   }
 
@@ -19,12 +19,12 @@ function atrium_csflashcards_help($path) {
     if ($path == 'node/add/csflashcards') {
       $help = '';
       $help .= '<h3>'. t('Flashcards') .'</h3>';
-      $help .= '<p>'. t("Post an entry to the csflashcards of this group. The post will be shared will all team members on the csflashcards, and they will be able to reply to it. You can optionally notify other group members by checking their name in the notifications field.") .'</p>';
+      $help .= '<p>'. t("Post an entry to the Flashcards page for this group. The post will be shared with all team members on the Flashcards page, and they will be able to edit it. You can optionally notify other group members by checking their name in the notifications field.") .'</p>';
       return $help;
     }
     else {
       $help = '<h3>'. t('Flashcards') .'</h3>';
-      $help .= '<p>'. t("The csflashcards lets your team communicate by posting updates and discussing issues. It is a great place for sharing progress, discussing challenges, and exploring ideas.") .'</p>';
+      $help .= '<p>'. t("Flashcards help your group share and study key concepts and terminology.") .'</p>';
       return $help;
     }
   }

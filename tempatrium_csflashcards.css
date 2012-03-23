@@ -1,5 +1,3 @@
-/* Icons */
-
 #features-menu li a.icon-csflashcards span.icon {
   background:url(images/icon40.png) no-repeat;
 }
@@ -12,46 +10,24 @@
   background:url(images/icon20.png) no-repeat !important;
 }
 
-
-/* CSS for fields */
-
-.field-field-side1title {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.field-field-side2title {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.imagecache-csflashcards_medium {
-    float: left;
-    margin: 5px;
-    border: 1px solid #CCCCCC;
-    border-radius: 5px 5px 5px 5px;
-}
-
-
 /**
  * Collapsible fields
  */
 
-.node-csflashcards fieldset {
+.group-side1 {
     margin-bottom: 1em;
     padding: 0.5em;
     border: 1px solid #CCCCCC;
     border-radius: 5px 5px 5px 5px;
 }
 
-html.js fieldset.collapsed {
+html.js group-side1.collapsed {
     border-bottom-width: 0;
     border-left-width: 0;
     border-right-width: 0;
     height: 1em;
     margin-bottom: 0;
 }
-
 
 html.js fieldset.collapsed * {
     display: none;
@@ -61,23 +37,10 @@ html.js fieldset.collapsed legend {
     display: block;
 }
 
-html.js fieldset.collapsed .fieldset-title {
-    display: block;
-    background-color: #EEEEEE;
-}
-
-html.js fieldset.collapsible .fieldset-title {
-    display: block;
-    background-color: #EEEEEE;
-}
-
-
 html.js fieldset.collapsible legend a {
     background: url("images/menu-expanded.png") no-repeat scroll 5px 75% transparent;
-    /* background-color: #EEEEEE; */
     padding-left: 15px;
 }
-
 
 html.js fieldset.collapsed legend a {
     background-image: url("images/menu-collapsed.png");

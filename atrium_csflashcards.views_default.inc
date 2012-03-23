@@ -11,10 +11,9 @@ function atrium_csflashcards_views_default_views() {
   $view->name = 'csflashcards_comments';
   $view->description = 'Atrium > Flashcards comments';
   $view->tag = 'atrium';
-  $view->view_php = '';
   $view->base_table = 'comments';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -241,10 +240,9 @@ function atrium_csflashcards_views_default_views() {
   $view->name = 'csflashcards_listing';
   $view->description = 'Atrium > csflashcards';
   $view->tag = 'atrium';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -355,8 +353,10 @@ function atrium_csflashcards_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -371,7 +371,8 @@ function atrium_csflashcards_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
-      'link_to_node' => 1,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 0,
       'spaces' => array(
         'frontpage' => 0,
         'type' => 'spaces_og',
@@ -381,6 +382,9 @@ function atrium_csflashcards_views_default_views() {
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'title_1' => array(
       'label' => 'Title',
@@ -479,41 +483,6 @@ function atrium_csflashcards_views_default_views() {
       'field' => 'created',
       'relationship' => 'none',
     ),
-    'comment_count' => array(
-      'label' => 'Comments',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'set_precision' => FALSE,
-      'precision' => 0,
-      'decimal' => '.',
-      'separator' => ',',
-      'prefix' => '',
-      'suffix' => '',
-      'exclude' => 0,
-      'id' => 'comment_count',
-      'table' => 'node_comment_statistics',
-      'field' => 'comment_count',
-      'relationship' => 'none',
-    ),
     'edit_node' => array(
       'label' => '',
       'alter' => array(
@@ -604,7 +573,7 @@ function atrium_csflashcards_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '1' => 0,
+        1 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_is_member' => 0,
@@ -642,7 +611,7 @@ function atrium_csflashcards_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '1' => 0,
+        1 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_php' => '',
@@ -732,7 +701,7 @@ function atrium_csflashcards_views_default_views() {
     'links' => 1,
     'comments' => 0,
   ));
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler = $view->new_display('page', 'Page-CS flashcards list', 'page_1');
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
     'grouping' => '',
@@ -785,20 +754,20 @@ function atrium_csflashcards_views_default_views() {
     ),
     'default' => 'title_1',
   ));
-  $handler->override_option('path', 'csflashcards');
+  $handler->override_option('path', 'csflashcards/list');
   $handler->override_option('menu', array(
-    'type' => 'normal',
-    'title' => 'Flashcards',
+    'type' => 'default tab',
+    'title' => 'Flashcards - List',
     'description' => '',
     'weight' => '0',
     'name' => 'features',
   ));
   $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
+    'type' => 'normal',
+    'title' => 'Flashcards',
+    'description' => 'Flashcards',
+    'weight' => '0',
+    'name' => 'features',
   ));
   $handler = $view->new_display('block', 'Block - Archive', 'block_1');
   $handler->override_option('arguments', array(
@@ -838,7 +807,7 @@ function atrium_csflashcards_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '1' => 0,
+        1 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_is_member' => 0,
@@ -874,10 +843,10 @@ function atrium_csflashcards_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '12' => 0,
-        '13' => 0,
-        '8' => 0,
-        '1' => 0,
+        12 => 0,
+        13 => 0,
+        8 => 0,
+        1 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_php' => '',
@@ -1121,6 +1090,84 @@ function atrium_csflashcards_views_default_views() {
     'page_1' => 0,
     'block_1' => 0,
   ));
+  $handler = $view->new_display('page', 'Page-Study Side 1', 'page_2');
+  $handler->override_option('sorts', array(
+    'sticky' => array(
+      'order' => 'DESC',
+      'id' => 'sticky',
+      'table' => 'node',
+      'field' => 'sticky',
+      'relationship' => 'none',
+    ),
+    'field_side1title_value' => array(
+      'order' => 'ASC',
+      'delta' => -1,
+      'id' => 'field_side1title_value',
+      'table' => 'node_data_field_side1title',
+      'field' => 'field_side1title_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('path', 'csflashcards/study-side-1');
+  $handler->override_option('menu', array(
+    'type' => 'tab',
+    'title' => 'Study Side 1',
+    'description' => 'Flashcards - Study Side 1',
+    'weight' => '0',
+    'name' => 'features',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('page', 'Page-Study Side 2', 'page_3');
+  $handler->override_option('sorts', array(
+    'sticky' => array(
+      'order' => 'DESC',
+      'id' => 'sticky',
+      'table' => 'node',
+      'field' => 'sticky',
+      'relationship' => 'none',
+    ),
+    'field_side2title_value' => array(
+      'order' => 'ASC',
+      'delta' => -1,
+      'id' => 'field_side2title_value',
+      'table' => 'node_data_field_side2title',
+      'field' => 'field_side2title_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('row_options', array(
+    'relationship' => 'none',
+    'build_mode' => 'full',
+    'links' => 1,
+    'comments' => 0,
+  ));
+  $handler->override_option('path', 'csflashcards/study-side-2');
+  $handler->override_option('menu', array(
+    'type' => 'tab',
+    'title' => 'Study Side 2',
+    'description' => 'Flashcards - Study Side 2',
+    'weight' => '0',
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
   $translatables['csflashcards_listing'] = array(
     t('Block - Archive'),
     t('Defaults'),
@@ -1129,7 +1176,9 @@ function atrium_csflashcards_views_default_views() {
     t('Flashcards Archive'),
     t('Flashcards teaser'),
     t('Flashcards teaser (list)'),
-    t('Page'),
+    t('Page-CS flashcards list'),
+    t('Page-Study Side 1'),
+    t('Page-Study Side 2'),
     t('Recent Flashcards Entries'),
     t('more'),
   );

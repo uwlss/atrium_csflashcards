@@ -11,17 +11,17 @@ function atrium_csflashcards_content_default_fields() {
     'field_name' => 'field_images',
     'type_name' => 'csflashcards',
     'display_settings' => array(
-      'weight' => '-1',
-      'parent' => 'group_side1',
+      'weight' => '-3',
+      'parent' => 'group_csflashcards_images',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'cs_small_linked',
+        'format' => 'csflashcards_medium_default',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'cs_medium_imagelink',
+        'format' => 'csflashcards_medium_default',
         'exclude' => 0,
       ),
       '5' => array(
@@ -70,7 +70,7 @@ function atrium_csflashcards_content_default_fields() {
       'default_image' => NULL,
       'use_default_image' => 0,
       'label' => 'Images',
-      'weight' => '-1',
+      'weight' => '-3',
       'description' => 'Add an image to your post.',
       'type' => 'imagefield_widget',
       'module' => 'imagefield',
@@ -82,7 +82,7 @@ function atrium_csflashcards_content_default_fields() {
     'field_name' => 'field_referenced_book_page',
     'type_name' => 'csflashcards',
     'display_settings' => array(
-      'weight' => '4',
+      'weight' => '3',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -99,19 +99,26 @@ function atrium_csflashcards_content_default_fields() {
     'widget_active' => '1',
     'type' => 'nodereference',
     'required' => '0',
-    'multiple' => '0',
+    'multiple' => '1',
     'module' => 'nodereference',
     'active' => '1',
     'referenceable_types' => array(
+      'blog' => 'blog',
       'book' => 'book',
+      'casetracker_basic_case' => 'casetracker_basic_case',
+      'courseinfo' => 'courseinfo',
       'event' => 'event',
+      'csflashcards' => 'csflashcards',
+      'csglossary' => 'csglossary',
       'cslibrary' => 'cslibrary',
-      'blog' => 0,
-      'casetracker_basic_case' => 0,
+      'casetracker_basic_project' => 'casetracker_basic_project',
+      'readingresponse' => 'readingresponse',
+      'status' => 'status',
+      'topictheme' => 'topictheme',
       'group' => 0,
       'profile' => 0,
-      'casetracker_basic_project' => 0,
       'shoutbox' => 0,
+      'webform' => 0,
       'feed_ical_item' => 0,
       'feed_ical' => 0,
     ),
@@ -128,7 +135,7 @@ function atrium_csflashcards_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Referenced Page',
-      'weight' => '4',
+      'weight' => '3',
       'description' => 'Type in the title of another post to add a reference.',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -403,67 +410,6 @@ function atrium_csflashcards_content_default_fields() {
     ),
   );
 
-  // Exported field: field_videolink
-  $fields['csflashcards-field_videolink'] = array(
-    'field_name' => 'field_videolink',
-    'type_name' => 'csflashcards',
-    'display_settings' => array(
-      'weight' => 0,
-      'parent' => 'group_side1',
-      'label' => array(
-        'format' => 'hidden',
-      ),
-      'teaser' => array(
-        'format' => 'video_thumbnail',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '5' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '2' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'emvideo',
-    'required' => '0',
-    'multiple' => '1',
-    'module' => 'emvideo',
-    'active' => '1',
-    'widget' => array(
-      'default_value' => array(
-        '0' => array(
-          'embed' => '',
-          'value' => '',
-        ),
-      ),
-      'default_value_php' => NULL,
-      'label' => 'Video',
-      'weight' => 0,
-      'description' => '',
-      'type' => 'emvideo_textfields',
-      'module' => 'emvideo',
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Description Side 1');
@@ -472,7 +418,6 @@ function atrium_csflashcards_content_default_fields() {
   t('Referenced Page');
   t('Title Side 1');
   t('Title Side 2');
-  t('Video');
 
   return $fields;
 }

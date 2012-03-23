@@ -28,16 +28,6 @@ function atrium_csflashcards_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-csflashcards_listing-block_2' => array(
-          'module' => 'views',
-          'delta' => 'csflashcards_listing-block_2',
-          'region' => 'right',
-          'weight' => 0,
-        ),
-      ),
-    ),
     'menu' => 'csflashcards',
   );
   $context->condition_mode = 0;
